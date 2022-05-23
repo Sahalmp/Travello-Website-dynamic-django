@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+</head>
+<body>
+
+
+<div class="lg">
+
+</div>
+
+<div class="row">
+        <div class="reg">
+<h2 style="text-align: center;">Registration Form</h2><br>
+             {% for msg in messages %}
+            <p style="color:red; font-size=2px;">* {{msg}}</p>
+    {% endfor %}
+
+    <form action="register" method="post">
+         {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter your username" required>
+        <input type="text" name="first_name" placeholder="Enter your first name" required>
+        <input type="text" name="last_name" placeholder="Enter your last name" required>
+
+        <input type="email" name="email" placeholder="Enter your email address" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <input type="password" name="password1" placeholder="Confirm your password" required><br><br>
+        <input  class="button" type="submit" value="Register" name="registerform">
+
+    </form>
+
+        </div>
+</div>
+
+</body>
+</html>
